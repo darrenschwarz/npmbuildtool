@@ -1,0 +1,43 @@
+{
+  "name": "npmbuildtool",
+  "version": "1.0.0",
+  "description": "npm as build tooling demo.",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm run wint",
+    "test": "mocha test -u bdd -R spec",
+    "posttest": "echo \"Running posttest script\"",
+    "start": "node *.js",
+    "start:dev": " node index.js 4000",
+    "stop": "echo \"Running stop script\"",
+    "restart": "echo \"Running restart script\"",
+    "pregreet": "echo \"Running pregreet script\"",
+    "greet": "echo \"Running greet script\"",
+    "postgreet": "echo \"Running postgreet script\"",
+	"lint": "jshint *.js **/*.js",
+	"wint": "for /r test/ %f in (*.js) do jshint %f",
+	"wint2": "for /r test2/ %f in (*.js) do jshint %f",
+	"wintall": "npm run wint2 & npm run wint"
+	
+  },
+  "jshintConfig": {
+	"esnext":"true",
+	"noyield": "true"
+  },
+  "keywords": [
+    "npm",
+    "build",
+    "scripting"
+  ],
+  "author": "Darren Schwarz",
+  "license": "MIT",
+  "devDependencies": {
+    "jshint": "^2.9.4",
+    "mocha": "^3.2.0",
+    "should": "^11.1.1",
+    "supertest": "^2.0.1"
+  },
+  "dependencies": {
+    "koa": "^1.2.4"
+  }
+}
